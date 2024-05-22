@@ -1,0 +1,69 @@
+@use "sass:map";
+@import "style/pages/all";
+
+.container_categories_slider {
+  width: 1200px;
+  
+
+  .images-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 400px;
+  }
+
+  .image-item {
+    text-decoration: none;
+    .image {
+      position: relative;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      
+      p {
+        font-size: 19px;
+        font-weight: 700;
+        background: rgba(176, 136, 136, 0.5);
+        color: #fff;
+        padding: 5px 10px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        
+      }
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 0 5px;
+
+      a {
+        padding: 10px 15px;
+        border: 1px solid #be9d7f;
+        color: #000000;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #ca8383;
+        }
+      }
+
+      &.active a {
+        background-color: #d6b9b9;
+        color: #ffffff;
+      }
+    }
+  }
+}
