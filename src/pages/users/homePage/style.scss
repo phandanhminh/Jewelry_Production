@@ -1,0 +1,233 @@
+@use "sass:map";
+@import "style/pages/all";
+$bannerImg:"/assets/users/images/hero/hero1.jpg";
+.container_categories_slider{
+    .divider2{
+        margin-top: 50px;
+        border-bottom: 2px solid #000000;
+    }
+    .divider1{
+        margin-top: 50px;
+        border-bottom: 2px solid #000000;
+    }
+    .divider {
+        margin-top: 390px;
+        width: 100%;
+        border-bottom: 2px solid #000000;
+    }
+    .container_name{
+        border: 3px solid rgb(221, 148, 148); /* Viền của hình chữ nhật */
+        margin-left: 490px;
+        display: grid;
+        justify-content: center;
+        width: 170px;      /* Chiều rộng của hình chữ nhật */
+        height: 90px;     /* Chiều cao của hình chữ nhật */
+        text-align: center;
+        margin-top: 30px;
+        font-size: 26px;
+        align-items: center;
+        border-radius:10px;
+        
+        
+    }
+    .categories_slider{
+        margin-top: 30px;
+        .categories_slider_item{               
+            height: 300px;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10px;
+            background-position: top center ;
+            border: 10px solid #f8dcdc;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            
+            p{
+                font-size: 19px;
+                font-weight: 700;
+                background: rgba(176, 136, 136, 0.5);
+                color: #fff;
+                padding: 5px 10px;
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                &:hover{
+                    background: rgb(139, 88, 88);
+                    font-size: 20px;
+                }
+            }
+            
+        }
+        
+    }
+}
+.hero_categories{
+    position: relative;
+    margin-top: 15px;
+    .hero_categories_all{
+        background:rgb(232, 196, 196);
+        padding : 15px 25px 15px 40px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #b36f6f;;
+        font-weight: 709;
+        user-select: none;
+        svg,
+        span{
+            font-size: 17px;     
+            margin-right: 10px;
+        }
+        svg{
+            font-size: 23px;
+            font-weight: bold;
+        }
+    }
+    ul{
+        position: absolute;
+        opacity: 1;
+        width: 99.6%;
+        background: rgb(241, 219, 219);
+        transition: all 0.2s;
+        li{
+            list-style: none;
+            a{
+                text-decoration: none;
+                background-color:transparent;
+                font-size: 16px;
+                color: rgb(206, 142, 146);
+                line-height: 39px;
+                display: block;
+                padding-left: 40px;
+            }
+            &:hover{
+                background: rgb(231, 192, 192);
+                a{
+                    color: rgb(0, 0, 0);
+                }
+            }
+        }
+
+        &.hidden{
+            opacity: 0;
+        }
+    }   
+}
+.hero_search_container{
+    .hero_search_form{   
+        margin-bottom: 30px;
+        width: 610px;
+        height: 50px;
+        float: left;
+        padding-left: 15px;    
+        form{
+            display: flex;
+            align-items: center;
+        } 
+        input{
+            border:none;
+            height: 48px;
+            font-size: 17px;
+            color:#000000;
+            padding-left: 20px;
+            border: 3px solid #ebebeb;
+            width: 70%;
+            :focus{
+                outline: none;
+                border: none;
+            }   
+        }
+    
+        button{
+            font-size: 17px;
+            color: #aa5c5c;
+            font-weight: 800;
+            display: inline-block;
+            padding:16px 30px 17px;
+            background: rgb(232, 196, 196);
+            border: none;
+            height: 100%;
+        }
+    }
+    .hero_search_phone{
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        .hero_search_phone_icon{
+            font-size: 25px;
+            padding: 10px;
+            background: #ebebeb;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0f0909;
+        }
+    }
+    .hero_search_phone_text{
+        display: inline-block;
+        p{
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        span{
+            color: #6f6f6f;
+            font-size: 14px;
+        }
+    }
+    .hero_item{
+        background-image: url($bannerImg);
+        background-size: cover ;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-left: 15px;
+        
+        .hero_text{
+            
+            padding-left: 75px;
+            span{
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 4px;
+                color: #000000;
+            }
+            h2{
+                font-size:  45px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 4px;
+                color:#aa5c5c;
+                margin:10px 0;
+            }
+            p{
+                font-size: 16px;
+                color: #787575;
+                font-weight: 400;
+                line-height: 26px;
+                margin: 0 0 15 0;
+            }
+            a{
+                display: inline-block;
+                font-size: 14px;
+                padding:10px 20px 10px;
+                color: #6f6f6f;
+                text-transform: uppercase;
+                font-weight: 700;
+                background:#ebebeb;
+                letter-spacing: 2px;
+                text-decoration: none;
+            }
+        }
+    }
+}
