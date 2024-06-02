@@ -9,7 +9,7 @@ import ProducDetail from "pages/users/productPage/ProducDetail";
 import BraceletMen from "pages/users/braceletMen";
 import RingMen from "pages/users/ringmenPage";
 import NecklaceMen from "pages/users/necklaceMen";
-import Cart from "pages/users/cartPage/viewCart";
+import ViewCart from "pages/users/cartPage/viewCart";
 
 
 function renderUserRouter() {
@@ -48,8 +48,9 @@ function renderUserRouter() {
         },
         {
             path: ROUTERS.USER.CART,
-            component: <Cart />,
+            component: <ViewCart />,
         }
+
     ];
     return (
         <MasterLayout>
@@ -61,6 +62,7 @@ function renderUserRouter() {
         </MasterLayout>
     );
 }
+
 
 const RouterCustom = () => {
     return renderUserRouter();
