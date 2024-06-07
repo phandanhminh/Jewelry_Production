@@ -192,7 +192,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={""} className="icon">
+                  <Link to={"/cart"} className="icon">
                     <AiOutlineShoppingCart />
                   </Link>
                 </li>
@@ -252,7 +252,7 @@ const Header = () => {
                 </div>
                 <ul>
                   <li>
-                    <Link to="#">
+                    <Link to="/cart">
                       <AiOutlineShoppingCart /> <span className="sizecart">5</span>
                     </Link>
                   </li>

@@ -10,7 +10,7 @@
         display: flex;
         align-items: flex-start;
         gap: 40px;
-        
+
         img {
             width: 400px;
             height: auto;
@@ -69,7 +69,7 @@
                     padding: 10px 20px;
                     background: bisque;
                     text-align: center;
-                    
+
                     &:hover {
                         background: rgb(237, 225, 225);
                         transform: scale(1.05);
@@ -77,5 +77,57 @@
                 }
             }
         }
+    }
+}
+.product-page .actions .add-to-cart {
+    display: flex; /* Optional: Position quantity input and button side-by-side */
+    align-items: center; /* Optional: Vertically align elements within the AddToCart component */
+    gap: 10px; /* Optional: Add spacing between quantity input and button */
+}
+
+.product-page .actions .add-to-cart input[type="number"] {
+    /* Style the quantity input as needed (optional) */
+    width: 50px; /* Example: Set a specific width for the quantity input */
+    padding: 5px; /* Example: Add padding to the quantity input */
+    border: 1px solid #ccc; /* Example: Add a border to the quantity input */
+    border-radius: 5px; /* Example: Add rounded corners to the quantity input */
+}
+
+.product-page .actions .add-to-cart button {
+    /* Style the "Add to Cart" button as needed (optional) */
+    background-color: #007bff; /* Example: Set the button background color */
+    color: white; /* Example: Set the button text color */
+    padding: 10px 20px; /* Example: Add padding to the button */
+    border: none; /* Example: Remove the default button border */
+    border-radius: 5px; /* Example: Add rounded corners to the button */
+    cursor: pointer; /* Indicate that the button is clickable */
+}
+
+.product-page .actions .add-to-cart button:hover {
+    background-color: #0069d9; /* Example: Change the button background color on hover */
+}
+.product-page .actions .add-to-cart .zalo-button {
+    /* Base styles for the Contact Messenger button */
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    /* Hover effect */
+    &:hover {
+        background-color: #0069d9;
+    }
+
+    /* Icon (optional) */
+    .zalo-button__icon {
+        display: inline-block;
+        margin-right: 4px;
+        /* Use the Contact Messenger icon SVG or image */
     }
 }

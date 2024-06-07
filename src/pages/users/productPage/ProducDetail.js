@@ -144,28 +144,6 @@ const ProductPage = () => {
                     <p>{product.price}</p>
 
                     <div className="actions">
-                        <label className="quantity-label">
-                            Số lượng:
-                            <div className="quantity-controls">
-                                <button onClick={decrementQuantity} className="quantity-button">
-                                    -
-                                </button>
-                                <input
-                                    type="number"
-                                    value={quantity}
-                                    onChange={handleQuantityChange}
-                                    min="1"
-                                    className="quantity-input"
-                                />
-                                <button onClick={incrementQuantity} className="quantity-button">
-                                    +
-                                </button>
-                            </div>
-                        </label>
-                        <a href="/messenger" className="messenger-button">
-                            <BiLogoMessenger className="messenger-icon" />
-                            Contact Messenger
-                        </a>
                         <AddToCart
                             quantity={quantity}
                             onQuantityChange={handleQuantityChange}
@@ -173,6 +151,11 @@ const ProductPage = () => {
                         />
                         <button>Mua ngay</button>
                         <button>Chat Zalo</button>
+                        <a href="/messenger" className="messenger-button">
+                            <BiLogoMessenger className="messenger-icon" />
+                            Contact Messenger
+                        </a>
+
                     </div>
                 </div>
             </div>

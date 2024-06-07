@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import "./viewCart.scss";
 
 const ViewCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -14,18 +14,28 @@ const ViewCart = () => {
     };
 
     const updateCartItemQuantity = (productId, newQuantity) => {
-        setCartItems(prevItems => prevItems.map(item =>
-            item.product.id === productId ? { ...item, quantity: newQuantity } : item
-        ));
+        // Ensure new quantity is not less than 0
+        const sanitizedQuantity = Math.max(1, newQuantity);
+        setCartItems(prevItems =>
+            prevItems.map(item => (item.product.id === productId ? { ...item, quantity: sanitizedQuantity } : item))
+        );
     };
+
 
     const removeFromCart = (productId) => {
         setCartItems(prevItems => prevItems.filter(item => item.product.id !== productId));
+
+        // Update localStorage with the removed item
+        const updatedCartItems = cartItems.filter(item => item.product.id !== productId);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
+
     const clearCart = () => {
-        setCartItems([]);
+        setCartItems([]); // Empty the cart items state
+        localStorage.setItem('cartItems', JSON.stringify([])); // Update localStorage with an empty array
     };
+
 
     return (
         <div className="view-cart">
