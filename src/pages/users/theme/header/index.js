@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { memo, useState } from "react";
 import "./style.scss";
 import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineMenu, AiOutlinePhone, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
@@ -273,3 +274,5 @@ const Header = () => {
 };
 
 export default memo(Header);
+=======
+>>>>>>> 264dac14d392ace4f33cce46a643456ea91c1c51
