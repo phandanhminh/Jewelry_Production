@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { memo, useState } from "react";
 import "./style.scss";
 import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineMail, AiOutlineMenu, AiOutlinePhone, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
@@ -11,7 +10,7 @@ import Login from 'components/Login';
 import Register from 'components/Register';
 const Header = () => {
   const [showPopup, setShowPopup] = useState(null); // null: không popup, 'login': login, 'register': register
-
+  const [user, setUser] = useState(null);
   const handleLoginClick = () => {
     setShowPopup('login');
   };
@@ -198,15 +197,21 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={""} className="icon">
+                  <Link to={"/profile"} className="icon">
                     <AiOutlineUser />
                   </Link>
                   <div>
-                    <button onClick={handleLoginClick}>Đăng nhập</button>
-                    <label> / </label>
-                    <button onClick={handleRegisterClick}>Đăng ký</button>
+                    {!user ? (
+                      <>
+                        <button onClick={handleLoginClick}>Đăng nhập</button>
+                        <label> / </label>
+                        <button onClick={handleRegisterClick}>Đăng ký</button>
+                      </>
+                    ) : (
+                      <span>Welcome, {user}!</span>
+                    )}
 
-                    {showPopup === 'login' && <Login toggle={handleClosePopup} />}
+                    {showPopup === 'login' && <Login toggle={handleClosePopup} setUser={setUser} />}
                     {showPopup === 'register' && <Register toggle={handleClosePopup} />}
                   </div>
                 </li>
@@ -274,5 +279,4 @@ const Header = () => {
 };
 
 export default memo(Header);
-=======
->>>>>>> 264dac14d392ace4f33cce46a643456ea91c1c51
+

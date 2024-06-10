@@ -1,9 +1,10 @@
+import Profile from "pages/users/profilePage/Profile";
 
 
 export const ROUTERS = {
     USER: {
         HOME: "",
-        PROFILE: "PROFILE",
+        PROFILE: "profile",
         MENS: "MENS",
         WOMENS: "WOMENS",
         JEWELRY: "JEWELRY",
@@ -13,6 +14,6 @@ export const ROUTERS = {
         RICHMEN: "RICHMENS",
         NECKLACEMEN: "NECKLACEMEN",
         CART: "cart",
-
+        CHECKOUT: "checkout",
     },
 };

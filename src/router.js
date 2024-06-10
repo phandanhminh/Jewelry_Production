@@ -1,4 +1,4 @@
-import ProfilePage from "pages/users/profilePage";
+
 import HomePage from "./pages/users/homePage";
 import MasterLayout from "./pages/users/theme/masterLayout";
 import { ROUTERS } from "./utils/router";
@@ -10,6 +10,9 @@ import BraceletMen from "pages/users/braceletMen";
 import RingMen from "pages/users/ringmenPage";
 import NecklaceMen from "pages/users/necklaceMen";
 import ViewCart from "pages/users/cartPage/viewCart";
+import Checkout from "pages/users/checkOutPage/CheckOut";
+import Profile from "pages/users/profilePage/Profile";
+
 
 
 function renderUserRouter() {
@@ -18,10 +21,7 @@ function renderUserRouter() {
             path: ROUTERS.USER.HOME,
             component: <HomePage />,
         },
-        {
-            path: ROUTERS.USER.PROFILE,
-            component: <ProfilePage />,
-        },
+
         {
             path: ROUTERS.USER.MENS,
             component: <MensPage />,
@@ -49,6 +49,14 @@ function renderUserRouter() {
         {
             path: ROUTERS.USER.CART,
             component: <ViewCart />,
+        },
+        {
+            path: ROUTERS.USER.CHECKOUT,
+            component: <Checkout />,
+        },
+        {
+            path: ROUTERS.USER.PROFILE,
+            component: <Profile />,
         }
 
     ];

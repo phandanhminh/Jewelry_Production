@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import "./viewCart.scss";
+import { useNavigate } from 'react-router-dom';
+import './viewCart.scss';
 
 const ViewCart = () => {
     const [cartItems, setCartItems] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -14,28 +16,26 @@ const ViewCart = () => {
     };
 
     const updateCartItemQuantity = (productId, newQuantity) => {
-        // Ensure new quantity is not less than 0
         const sanitizedQuantity = Math.max(1, newQuantity);
         setCartItems(prevItems =>
             prevItems.map(item => (item.product.id === productId ? { ...item, quantity: sanitizedQuantity } : item))
         );
     };
 
-
     const removeFromCart = (productId) => {
-        setCartItems(prevItems => prevItems.filter(item => item.product.id !== productId));
-
-        // Update localStorage with the removed item
         const updatedCartItems = cartItems.filter(item => item.product.id !== productId);
+        setCartItems(updatedCartItems);
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
-
     const clearCart = () => {
-        setCartItems([]); // Empty the cart items state
-        localStorage.setItem('cartItems', JSON.stringify([])); // Update localStorage with an empty array
+        setCartItems([]);
+        localStorage.setItem('cartItems', JSON.stringify([]));
     };
 
+    const handleCheckout = () => {
+        navigate('/checkout', { state: { totalPrice: calculateTotalPrice() } });
+    };
 
     return (
         <div className="view-cart">
@@ -61,11 +61,9 @@ const ViewCart = () => {
                             </li>
                         ))}
                     </ul>
-
                     <p>Tổng Tiền: ${calculateTotalPrice().toFixed(2)}</p>
-
                     <button onClick={clearCart}>Xóa Giỏ Hàng</button>
-                    <button>Thanh Toán</button>
+                    <button onClick={handleCheckout}>Thanh Toán</button>
                 </div>
             )}
         </div>
