@@ -17,9 +17,9 @@ const ViewCart = () => {
 
     const updateCartItemQuantity = (productId, newQuantity) => {
         const sanitizedQuantity = Math.max(1, newQuantity);
-        setCartItems(prevItems =>
-            prevItems.map(item => (item.product.id === productId ? { ...item, quantity: sanitizedQuantity } : item))
-        );
+        const updatedCartItems = cartItems.map(item => (item.product.id === productId ? { ...item, quantity: sanitizedQuantity } : item));
+        setCartItems(updatedCartItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     };
 
     const removeFromCart = (productId) => {

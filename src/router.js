@@ -1,19 +1,19 @@
-
-import HomePage from "./pages/users/homePage";
-import MasterLayout from "./pages/users/theme/masterLayout";
-import { ROUTERS } from "./utils/router";
-import { Route, Routes } from "react-router-dom";
-import MensPage from "pages/users/mensPage";
-import JewelryPages from "pages/users/jewelryPages";
-import ProducDetail from "pages/users/productPage/ProducDetail";
-import BraceletMen from "pages/users/braceletMen";
-import RingMen from "pages/users/ringmenPage";
-import NecklaceMen from "pages/users/necklaceMen";
-import ViewCart from "pages/users/cartPage/viewCart";
-import Checkout from "pages/users/checkOutPage/CheckOut";
-import Profile from "pages/users/profilePage/Profile";
-
-
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/users/homePage';
+import MasterLayout from './pages/users/theme/masterLayout';
+import { ROUTERS } from './utils/router';
+import MensPage from './pages/users/mensPage';
+import JewelryPages from './pages/users/jewelryPages';
+import ProducDetail from './pages/users/productPage/ProducDetail';
+import BraceletMen from './pages/users/braceletMen';
+import RingMen from './pages/users/ringmenPage';
+import NecklaceMen from './pages/users/necklaceMen';
+import ViewCart from './pages/users/cartPage/viewCart';
+import Checkout from './pages/users/checkOutPage/CheckOut';
+import Profile from './pages/users/profilePage/Profile';
+import CreateProduct from './pages/manager/CreateProduct/CreateProduct';
+import ManagerLayout from './pages/manager/ManagerLayout/ManagerLayout';
 
 function renderUserRouter() {
     const userRouters = [
@@ -21,7 +21,6 @@ function renderUserRouter() {
             path: ROUTERS.USER.HOME,
             component: <HomePage />,
         },
-
         {
             path: ROUTERS.USER.MENS,
             component: <MensPage />,
@@ -57,9 +56,9 @@ function renderUserRouter() {
         {
             path: ROUTERS.USER.PROFILE,
             component: <Profile />,
-        }
-
+        },
     ];
+
     return (
         <MasterLayout>
             <Routes>
@@ -71,8 +70,33 @@ function renderUserRouter() {
     );
 }
 
+function renderManagerRouter() {
+    const managerRouters = [
+        {
+            path: ROUTERS.MANAGER.CREATEPRODUCT,
+            component: <CreateProduct />,
+        }
+        // Add more manager routes here if needed
+    ];
+
+    return (
+        <ManagerLayout>
+            <Routes>
+                {managerRouters.map((item, key) => (
+                    <Route key={key} path={item.path} element={item.component} />
+                ))}
+            </Routes>
+        </ManagerLayout>
+    );
+}
 
 const RouterCustom = () => {
-    return renderUserRouter();
+    return (
+        <Routes>
+            <Route path="/*" element={renderUserRouter()} />
+            <Route path="/manager/*" element={renderManagerRouter()} />
+        </Routes>
+    );
 };
+
 export default RouterCustom;

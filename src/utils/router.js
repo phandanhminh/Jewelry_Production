@@ -1,5 +1,3 @@
-import Profile from "pages/users/profilePage/Profile";
-
 
 export const ROUTERS = {
     USER: {
@@ -15,5 +13,9 @@ export const ROUTERS = {
         NECKLACEMEN: "NECKLACEMEN",
         CART: "cart",
         CHECKOUT: "checkout",
+
     },
+    MANAGER: {
+        CREATEPRODUCT: "create-product",
+    }
 };

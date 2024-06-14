@@ -1,0 +1,16 @@
+.manager-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 109px;
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        p {
+            margin: 0;
+        }
+    }
+}
