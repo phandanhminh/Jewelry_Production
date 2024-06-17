@@ -1,0 +1,55 @@
+.slider-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+  height: 435px; /* Thiết lập chiều cao cố định cho container */
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo hình ảnh phù hợp trong không gian chứa mà không bị méo */
+  flex-shrink: 0;
+}
+
+.prev-arrow,
+  .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    z-index: 10;
+  }
+
+  .prev-arrow {
+    left: 10px;
+
+    &::before {
+      content: '<';
+    }
+  }
+
+  .next-arrow {
+    right: 10px;
+
+    &::before {
+      content: '>';
+    }
+  }
+
+  .prev-arrow:hover,
+  .next-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }

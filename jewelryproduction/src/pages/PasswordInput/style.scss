@@ -1,0 +1,17 @@
+.password-container {
+    display: flex;
+    align-items: center;
+
+    input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .toggle-password {
+        margin-left: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
