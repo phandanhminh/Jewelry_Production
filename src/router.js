@@ -14,6 +14,7 @@ import Checkout from './pages/users/checkOutPage/CheckOut';
 import Profile from './pages/users/profilePage/Profile';
 import CreateProduct from './pages/manager/CreateProduct/CreateProduct';
 import ManagerLayout from './pages/manager/ManagerLayout/ManagerLayout';
+import GoldPriceTracker from 'pages/users/goldPriceTracker/GoldPriceTracker';
 
 function renderUserRouter() {
     const userRouters = [
@@ -56,6 +57,10 @@ function renderUserRouter() {
         {
             path: ROUTERS.USER.PROFILE,
             component: <Profile />,
+        },
+        {
+            path: ROUTERS.USER.GOLDPRICE,
+            component: <GoldPriceTracker />,
         },
     ];
 

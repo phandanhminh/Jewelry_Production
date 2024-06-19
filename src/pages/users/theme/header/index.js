@@ -11,6 +11,7 @@ import Register from 'components/Register';
 const Header = () => {
   const [showPopup, setShowPopup] = useState(null); // null: không popup, 'login': login, 'register': register
   const [user, setUser] = useState(null);
+  const [accName, setAccName] = useState('');
   const handleLoginClick = () => {
     setShowPopup('login');
   };
@@ -21,6 +22,10 @@ const Header = () => {
 
   const handleClosePopup = () => {
     setShowPopup(null); // Đóng tất cả popup
+  };
+  const handleLogout = () => {
+    setUser(null);
+    setAccName('');
   };
   const [isShowHumberger, setShowHumberger] = useState(false);
   const [menus] = useState([
@@ -208,10 +213,13 @@ const Header = () => {
                         <button onClick={handleRegisterClick}>Đăng ký</button>
                       </>
                     ) : (
-                      <span>Welcome, {user}!</span>
+                      <>
+                        <span>{accName}!</span>
+                        <button onClick={handleLogout}>Logout</button>
+                      </>
                     )}
 
-                    {showPopup === 'login' && <Login toggle={handleClosePopup} setUser={setUser} />}
+                    {showPopup === 'login' && <Login toggle={handleClosePopup} setUser={setUser} setAccName={setAccName} />}
                     {showPopup === 'register' && <Register toggle={handleClosePopup} />}
                   </div>
                 </li>

@@ -13,7 +13,7 @@ const ManagerHeader = () => {
                         <li><Link to="/manager/create-product">Create Product</Link></li>
                         <li><Link to="/manager/manage-products">Manage Products</Link></li>
                         <li><Link to="/manager/profile">Profile</Link></li>
-                        <li><Link to="/logout">Logout</Link></li>
+                        <li><Link to="/">Logout</Link></li>
                     </ul>
                 </nav>
             </div>

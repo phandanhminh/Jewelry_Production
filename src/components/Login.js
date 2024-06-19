@@ -7,12 +7,12 @@ import ForgotPassword from 'pages/users/forgotPasswordPage/ForgotPassword';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Login({ toggle, setUser }) {
+function Login({ toggle, setUser, setAccName }) {
     const navigate = useNavigate();
     const [showForgotPassword, setShowForgotPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false); // State for "Remember Me"
+    const [rememberMe, setRememberMe] = useState(false);
     const [message, setMessage] = useState('');
     const [token, setToken] = useState(null);
     const API_URL = "http://localhost:5229/";
@@ -24,22 +24,33 @@ function Login({ toggle, setUser }) {
                 email: email,
                 password: password,
             });
-            setToken(response.data);
 
-            if (rememberMe) {
-                localStorage.setItem('email', email);
-                localStorage.setItem('password', password);
-            } else {
-                localStorage.removeItem('email');
-                localStorage.removeItem('password');
+            if (response.data) {
+                setToken(response.data.token);
+
+                if (rememberMe) {
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('password', password);
+                } else {
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('password');
+                }
+
+                setUser(email);
+                setAccName(response.data.account.accName);
+
+                // Kiểm tra vai trò của người dùng và chuyển hướng
+                if (response.data.account.role === 'MN') {
+                    navigate('/manager/');
+                } else {
+                    navigate('/');
+                }
+
+                toggle(); // Đóng popup
             }
-
-            setUser(email); // Set the user in the parent component
-            navigate('/');
-            toggle(); // Close the popup
         } catch (error) {
-            console.error('There was an error!!!', error);
-            alert('Login failed!!!');
+            console.error('Có lỗi xảy ra:', error);
+            alert('Đăng nhập thất bại!');
         }
     };
 
@@ -54,7 +65,7 @@ function Login({ toggle, setUser }) {
         if (savedEmail && savedPassword) {
             setEmail(savedEmail);
             setPassword(savedPassword);
-            setRememberMe(true); // Set rememberMe to true if credentials exist
+            setRememberMe(true);
         }
     }, []);
 

@@ -13,6 +13,7 @@ export const ROUTERS = {
         NECKLACEMEN: "NECKLACEMEN",
         CART: "cart",
         CHECKOUT: "checkout",
+        GOLDPRICE: "gold-price"
 
     },
     MANAGER: {
